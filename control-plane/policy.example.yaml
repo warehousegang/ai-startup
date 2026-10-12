@@ -1,0 +1,39 @@
+# REFERENCE ONLY - NOT VALIDATED SYMPHONY CONFIGURATION.
+# DO NOT MAKE THIS ACTIVE UNTIL A TRUSTED POLICY ENGINE IMPLEMENTS IT.
+version: 1
+repositories:
+  exact_allowlist:
+    - REPLACE_WITH_REAL_ORG/REPO_A
+    - REPLACE_WITH_REAL_ORG/REPO_B
+    - REPLACE_WITH_REAL_ORG/REPO_C
+    - REPLACE_WITH_REAL_ORG/REPO_D
+    - REPLACE_WITH_REAL_ORG/REPO_E
+    - REPLACE_WITH_REAL_ORG/REPO_F
+admission:
+  require_ticket_approval_event: true
+  require_current_issue_revision: true
+  require_nonempty_acceptance_criteria: true
+  require_single_approved_repository: true
+  unknown_fields_policy: deny
+execution:
+  default_concurrency_per_repository: 1
+  isolate_checkout: true
+  deny_host_home_mounts: true
+  deny_production_credentials: true
+  outbound_network: deny_except_allowlisted
+  hard_max_attempts: 2
+publication:
+  direct_sandbox_write_tokens: forbidden
+  require_current_fencing_epoch: true
+  require_target_repo_allowlist: true
+  require_expected_branch_sha: true
+  require_idempotency_and_reconciliation: true
+  allow_draft_pr_via_broker: true
+  allow_auto_merge: false
+  allow_production_deploy: false
+privileged_actions:
+  credentials_or_secrets: human_gate
+  patient_data: deny_by_default
+  database_migrations: human_gate
+  infrastructure_changes: human_gate
+  ci_or_branch_protection_changes: human_gate

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# DOCUMENTATION ONLY. Copy to scripts/verify-local.sh and replace all placeholders.
+# WARNING: This example fails intentionally; do not make it pass until real tests exist.
+set -euo pipefail
+
+echo 'ERROR: configure true build, lint, unit and integration checks for this repo.' >&2
+exit 2

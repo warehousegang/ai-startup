@@ -1,0 +1,17 @@
+name: Agent verification baseline
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  agent-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      # Pin third-party Actions to approved immutable SHAs under your security policy.
+      # Add explicit language/toolchain setup and no production credentials.
+      - name: Run required project verification (fails until configured)
+        shell: bash
+        run: make agent-verify

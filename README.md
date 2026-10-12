@@ -36,4 +36,4 @@ The sample CI job intentionally runs `make agent-verify`, which fails with exit 
 
 Read PDF chapters 4-5, 6-7, 9-11 and 14 before changing orchestration settings. The PDF has official source links (OpenAI, Anthropic, MCP, Context7 and fencing-token research).
 
-Author: Thomas Howard
+Author:  Thomas Howard
